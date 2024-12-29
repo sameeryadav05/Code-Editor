@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/47f08f919b.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <video autoplay loop muted plays-inline class="back">
+            <source src="video.mp4" type="video/mp4">
+        </video>
+        <div class="left-panel">
+            <label>HTML&nbsp;<i class="fa-brands fa-html5" id="one"></i></label>
+            <textarea id="HTML" onkeyup="run()"></textarea>
+
+            <label>CSS&nbsp;<i class="fa-brands fa-css3-alt" id="two"></i></label>
+            <textarea id="CSS" onkeyup="run()"></textarea>
+
+            <label>Javascript&nbsp;<i class="fa-brands fa-square-js" id="three"></i></label>
+            <textarea id="JS" onkeyup="run()"></textarea>
+
+        </div>
+        <div class="right-panel">
+            <label><i class="fa-solid fa-play"></i>&nbsp;output</label>
+            <iframe id="output"></iframe>
+        </div>
+
+    </div>
+    <script>
+        function run()
+        {
+            let htmlcode = document.getElementById("HTML").value;
+            let csscode = document.getElementById("CSS").value;
+            let jscode = document.getElementById("JS").value;
+            let output = document.getElementById("output")
+
+            output.contentDocument.body.innerHTML = htmlcode + "<style>"+csscode+"</style>";
+            output.contentWindow.eval(jscode);
+        }
+
+
+
+    </script>
+    
+</body>
+</html>
